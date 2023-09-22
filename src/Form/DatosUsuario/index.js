@@ -16,8 +16,8 @@ const DatosUsuario = () => {
   //     }
   //   }
   // }
-  const [email, setEmail] = useState({ value: "", valid: true });
-  const [password, setPassword] = useState({ value: "", valid: true });
+  const [email, setEmail] = useState({ value: "", valid: null });
+  const [password, setPassword] = useState({ value: "", valid: null });
   return (
     <Box
       component="form"
@@ -30,7 +30,12 @@ const DatosUsuario = () => {
       }}
       onSubmit={(e) => {
         e.preventDefault();
-        console.log(email, password);
+        if( email.valid && password.valid ){
+          console.log(email, password);
+          console.log("siguiente formulario");
+        } else {
+          console.log("datos no validos")
+        }
       }}
     >
       <TextField
@@ -39,9 +44,9 @@ const DatosUsuario = () => {
         fullWidth
         margin="dense"
         type="email"
-        color="error"
-        error={false}
-        helperText={false && "Ingresa un correo electrónico válido"}
+        color="primary"
+        error={email.valid === false}
+        helperText={email.valid === false && "Ingresa un correo electrónico válido"}
         value={email.value}
         onChange={(input) =>{
           const email = input.target.value
@@ -53,9 +58,11 @@ const DatosUsuario = () => {
         label="Contraseña"
         variant="filled"
         fullWidth
-        color="error"
         margin="dense"
         type="password"
+        color="primary"
+        error={password.valid  === false}
+        helperText={password.valid  === false && "La contraseña debe tener mínimo 8 caracteres y máximo 50  "}
         value={password.value}
         onChange={(input) => {
           const password = input.target.value
