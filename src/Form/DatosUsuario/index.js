@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Button, Box } from "@mui/material";
-import { validateEmail, validatePassword } from "./validations";
+import { validateEmail, validatePassword } from "../helpers/validations";
+
 
 const DatosUsuario = ({updateStep}) => {
 
