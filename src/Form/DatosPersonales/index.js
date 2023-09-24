@@ -1,7 +1,7 @@
 import React from "react";
 import { TextField, Button, Box } from "@mui/material";
 
-const DatosPersonales = () => {
+const DatosPersonales = ({updateStep}) => {
   return (
     <Box
       component="form"
@@ -12,11 +12,15 @@ const DatosPersonales = () => {
         justifyContent: "center",
         flexDirection: "column",
       }}
+      onSubmit={(e)=>{
+        e.preventDefault()
+        updateStep(2)
+      }}
     >
       <TextField
         label="Nombre"
         variant="filled"
-        color="error"
+        color="primary"
         fullWidth
         margin="dense"
         type="text"
@@ -24,7 +28,7 @@ const DatosPersonales = () => {
       <TextField
         label="Apellidos"
         variant="filled"
-        color="error"
+        color="primary"
         fullWidth
         margin="dense"
         type="text"
@@ -32,7 +36,7 @@ const DatosPersonales = () => {
       <TextField
         label="Número telefónico"
         variant="filled"
-        color="error"
+        color="primary"
         fullWidth
         margin="dense"
         type="number"
