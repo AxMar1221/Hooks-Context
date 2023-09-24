@@ -69,7 +69,7 @@ const DatosPersonales = ({updateStep}) => {
         type="number"
         inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
         error={phone.valid === false}
-        helperText={phone.valid === false && "Ingresa un numero de telefono valido (de 10 dígitos)"}
+        helperText={phone.valid === false && "Ingresa un numero de telefono valido que contenga 10 dígitos)"}
         value={phone.value}
         onChange={(input) =>{
           const phone = input.target.value
