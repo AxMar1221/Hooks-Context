@@ -18,7 +18,7 @@ const DatosEntrega = ({ updateStep }) => {
   const [address, setAddress] = useState({ value: "", valid: null });
   const [city, setCity] = useState({ value: "", valid: null });
   // const [estate, setEstate] = useState({ value: "", valid: null });
-  const [estate, setEstate] = useState("Selecciona estado");
+  const [estate, setEstate] = useState("");
 
   const handleChange = (e) => {
     e.preventDefault();
